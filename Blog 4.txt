@@ -1,0 +1,171 @@
+QUESTION 1) What do you find challenging about coding?
+
+The thing I find most challenging with coding is implementing something for the first time after learning about it.  It will often take me several attempts
+and a lot of references to documentation to get a function or terminal app to work correctly.  I have a tendency to want to over complicate things, so I 
+usually have to step back and take a simplified approach to a problem to get things to work correctly.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Talk about a project that disappointed you. What would you change?
+
+There hasn't been a project that has really disappointed me.  I am pretty pleased with my effort on most of the projects I have worked on and submitted.  I 
+would definitely work on fixing the small mistakes I made by leaving out things on a few assignments when submitted.  I went back and fixed those mistakes so
+I could reference the assignments with everything working properly.  I have gone back on a few assignments and worked on cleaning up code and implementation
+to make them work with less code.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) List three key things to consider when coding with SEO in mind.
+
+1. Redirects
+Search engines hate duplicate content, so pick a side: redirect www. to non www. (or vice versa) to avoid ending up with two copies of every page, e.g. 301
+
+https://example.com/baseball
+
+to
+
+https://www.example.com/baseball
+
+
+2. Meta data
+Basic meta data falls into three tags: titles, descriptions, and links. Meta descriptions and titles should include relevant keywords for the page (but not be stuffed with them). The golden rule is to always write for a human rather than a search engine.
+
+Always write for a human over a search engine.
+Titles should ideally be under 70 characters in length and explain clearly to the reader exactly what they can expect to find on your page:
+
+<title>Time Travel: A Beginner’s Guide from Cronofy</title>
+A good meta description starts with a call to action and gives the reader a convincing reason why they should visit your website in under 230 characters.
+
+<meta
+  name="description"
+  content="Jump into our free beginner's guide on how to make
+  time travel work for you. Written by Cronofy, experts in time
+  and space.">
+
+3. Search-engine friendly URLs
+This is one of the golden areas where both users and search engines want the same thing: URLs that are easily understood.
+
+Poor URLs are pretty rare these days, but double check that your pages look more like:
+
+https://www.example.com/baseball
+as opposed to:
+
+https://www.example.com/38329jdaajwhj323WTF
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) List five or more ways you could optimize a website to be as efficient and scalable as possible.
+
+1. Use a Content Delivery Network (CDN)
+A content delivery network is a set of web servers distributed across various geographical locations that provide web content to end users with regard to 
+their location. When you host the website on a single server, all users requests are sent to the same hardware. For this reason, the time needed to process 
+each request increases. On top of that, the load time increases when users are physically far from the server. With CDN, user requests are redirected to the nearest 
+server. As a result, the content is delivered to a user quicker and a website works faster. This is a rather expensive, but quite effective way to optimize the 
+load time.
+
+2. Move your website to a better host
+There are three possible types of hosting:
+
+Shared hosting
+Virtual Private Servers (VPS) hosting
+Dedicated server
+The most popular type of hosting that is used all over the world is sharing hosting. That’s the cheapest way to get your site online in a short time and for 
+a low fee. It’s essential to choose the fast web host to ensure better optimization. With shared hosting, you share CPU, disk space, and RAM with other sites 
+that also use this server. This is the main reason why shared hosting isn’t as fast as VPS or a dedicated server.
+
+Virtual Private Servers and dedicated servers are much faster. VPS uses multiple servers for content distribution. Having VPS you share the server with its 
+other users and have your own part of the virtual server where your configurations don’t influence other clients. If your website has the average traffic or 
+you have the eCommerce site with traffic spikes in some periods, VPS will be the optimal solution for you.
+
+The most expensive hosting option is to use a dedicated server which can be your own physical server. In this case, you pay a server rent and hire a system 
+administrator to maintain it.
+
+Another approach is to rent dedicated cloud resource from AWS, Microsoft Azure, Google, or other public cloud provider. Both approaches can also be combined 
+into a hybrid cloud that we discussed recently. With dedicated servers, all resources belong only to you and you get the full control of it. Cloud 
+infrastructures can also add unlimited and on-demand scalability under a number of packages.
+
+
+3. Optimize the size of images on your website
+Everyone loves eye-catching images. In the case of successful eCommerce sites, images are the vital part. A lot of photos, images, graphics on your product 
+pages improve engagement. The negative side of the image use is that they are usually large files that slow down a website.
+
+The best way to reduce the image size without compromising its quality is to compress images using such tools as ImageOptim, JPEGmini, or Kraken. The procedure 
+may take a bit of time but it’s worth it. Another way to reduce the image size is to use the HTML responsive images <secret> and <size> attributes that adjust 
+image size based on user display properties.
+
+4. Reduce the number of plugins
+Plugins are common components of each website. They add specific features suggested by third parties. Unfortunately, the more plugins are installed, the more 
+resources are needed to run them. As a result, the website works slower and also security issues can appear. As time passes, the number of plugins grows, while 
+some of them may not be used anymore. We recommend checking out all the plugins you have installed and deleting unnecessary ones. First, run the performance tests 
+on your page to find out which plugins are slowing down your website. Not only does the website speed depend on the number of installed plugins but also on their 
+quality. Try to avoid plugins that load a lot of scripts and styles or generate a lot of database queries. The best solution is to keep only the necessary ones 
+and ensure that they are kept up to date.
+
+5. Minimize the number of JavaScript and CSS files
+If your website contains a lot of JavaScript and CSS files, it leads to a large number of HTTP requests when your website visitors want to access particular files. 
+These requests are treated individually by visitor’s browser and slow down the website work. If you reduce the number of JavaScript and CSS files this will 
+undoubtedly speed up your website. Try to group all JavaScript into one and also do so with all CSS files. This will reduce the overall number of HTTP requests. 
+There are a lot of tools to minify HTML, CSS, and JavaScript files quickly. For instance, you can use  WillPeavy, Script Minifier, or Grunt tools.
+
+6. Use website caching
+In case there are a lot of users accessing the page at one time servers work slowly and need more time to deliver the web page to each user. Caching is the process 
+of storing the current version of your website on the hosting and presenting this version until your website is updated. This means that the web page doesn’t render
+over and over again for each user.Cached web page doesn’t need to send database requests each time.
+
+The approaches to website caching depend on the platform your website is developed on. For WordPress for instance, you can use the following plugins: W3 Total 
+Cache or W3 Super Cache. If you use VPS or a dedicated server, you can also set up caching under your general settings. In the case of the shared server, the 
+website caching isn’t usually available.
+
+7. Implement Gzip Compression
+Gzip Compression is an effective way to reduce the size of files. It minimizes the HTTP requests and reduces the server response time. Gzip compresses the files 
+before sending them to the browser. On the user side, a browser unzips the files and presents the contents. This method can work with all files on your website. 
+You can enable Gzip on your website by adding some lines of the code or via a utility called gzip.
+
+8. Database optimization in CMS
+Database optimization is the an effective way to increase performance. If you use a content management system (CMS) packed with complex plugins, the database size 
+increases and your website works slower. For instance, the WordPress CMS stores comments, blog posts, and other information that take up a lot of data storage. 
+Each CMS requires its own optimization measures and also has a number of specific plugins. For WordPress, for example, you may consider WP-Optimize.
+
+9. Reduce the use of web fonts
+Web fonts have become very popular in website design. Unfortunately, the use of web fonts has a negative impact on the speed of page rendering. Web fonts add 
+extra HTTP requests to external resources. The following measures will help you reduce the size of web font traffic:
+
+Use modern formats WOFF2 for modern browsers;
+Include only those character sets that are used on the site;
+Choose only the needed styles
+
+10. Detect 404 errors
+A 404 error means that a “Page isn’t found”. This message is provided by the hosting to browsers or search engines when the accessed content of a page no 
+longer exists. In order to detect and correct a 404 error, you can use error detection tools and plugins. As we mentioned, additional plugins can negatively 
+affect your website speed, so we advise running the resource through external tools for error detection. For instance, Xenu’s Link Sleuth, Google Webmaster 
+Tools (GWT), and 404 Redirected Plugin For WordPress.  
+
+Once you’ve detected all 404 errors, you need to assess the traffic that they generate. If these dead links no longer bring any visits and thus never consume 
+your server resource, then you may leave them as they are. If these pages still have some traffic coming, consider setting redirects for external links and 
+fixing the link addresses for the internal ones.
+
+11. Reduce redirects
+Website redirects create additional HTTP requests which negatively impact performance. We advise to keep them to a minimum or eliminate them entirely. First, 
+you should identify all redirects on you page by running a site scan. You can use Screaming Frog to quickly identify redirects. Then you must check if they 
+serve a necessary purpose and leave only the critical ones.
+
+12. Use prefetching techniques
+Prefetching entails reading and executing instructions before a user initiates them. The technique is rather common. It works well if you can anticipate user 
+actions and, for instance, load some content or links in advance. Usually, modern browsers allow for prefetching by default as they assume user behavior patterns. 
+However, UX specialists and engineers are more likely to understand user behavior and make “hints” for browsers to do prefetching work.
+
+There are three main types of prefetching:
+
+DNS-prefetching. The practice entails resolving domains into IP addresses in advance.
+
+Link Prefetching. If you are sure that a user will click on a specific link to navigate to some page, you can apply this type of prefetching. The method is useful 
+for stable user journey actions, like moving to the shopping cart page after one or several items were added.
+
+Prerendering. This approach means rendering an entire page or some elements of it in advance.
+
+While prefetching is effective, it requires deep user behavior analysis in to make precise assumptions.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+

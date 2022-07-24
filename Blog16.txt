@@ -1,0 +1,364 @@
+QUESTION 1) TCan you explain the purpose of each type of HTTP Request when using a RESTful web service?
+
+Representational State Transfer (REST) is a software architectural style that defines a set of constraints to be used for 
+creating Web services. Web services that conform to the REST architectural style, called RESTful Web services (RWS)
+
+The purpose of each of the HTTP request types, when used with a RESTful web service, is as follows.
+
+1. GET
+
+Retrieves data from the server (should only retrieve data and should have no other effect). This is also called an idempotent 
+method. here is an example of a GET request to retrieve the book with id 123 from Server.
+
+GET /books/123
+
+2. POST 2
+
+This HTTP request type is usually used for creating an entity i.e. a resource without an id. Once the request is successfully 
+created, an id of the newly created entity is returned as part of the response to this HTTP request. It is often used when 
+uploading a file or submitting a completed web form.
+
+For example, following URL will create a new book in the server
+
+POST /books/
+
+3. PUT
+
+Similar to POST, but used to update an existing entity. You pass the id of existing resource along with PUT request type. For example, 
+following URL will replace the book with id 123 in the server
+
+PUT /books/123
+
+4. DELETE
+
+Removes the resource from the server. Similar to PUT you need to pass the id of the resource to be deleted. For example, 
+following URL will remove the book with id 123 in the server
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) What's a test pyramid? How can you implement it when talking about HTTP APIs?
+
+The base of the pyramid consists of unit tests. A unit is a small logical piece of code: it can be a function, a class, or even a
+method in a class. A unit test only checks that said unit behaves as the developer intended. By calling the tested code directly 
+and evaluating its output, a developer can write a unit test without depending on any other components, services, or the UI.
+
+One level above, at the middle of the pyramid, we find integration tests, which are called “service tests” in Mike’s book. Integration
+in this context refers to testing how different components of the system work together. For instance, if a model in the code can 
+correctly exchange data with the database or if a method can retrieve information from an API. No UI interactions are needed, as 
+integration tests can directly call the code at the interfaces.
+
+At the top of the pyramid we find the end-to-end tests (E2E). Also known as UI tests, E2E is testing in its most intuitive sense: 
+use the application and see if it works. But instead of having a human conducting the tests, E2E tests are entirely automated. Every 
+user interaction is mimicked; an E2E test can click buttons, type values, and evaluate what the UI is showing.
+
+
+Inverting a testing pyramid means that you have UI tests the most, following by integration tests. In the inverted testing pyramid, 
+there are the fewest unit tests.
+
+The cases where this makes sense is:
+
+Putting legacy code into test automation – you are trying to add some automated tests to your application, but UI and business 
+logic are tightly coupled. This means that it’s not possible to write unit tests, but you need to start with UI and integration tests. 
+After you decouple UI from business logic, then you might add unit tests.
+
+Your app mainly calls other API-s – if your application’s logic consists mainly of calling other libraries and/or performing lots of 
+network requests, then it doesn’t make too much sense to write unit tests for it.
+
+Interaction with the real device – if you are working on an application that will be deployed on a physical device, then you might 
+benefit more from having UI tests that will check the application works fine.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What is the "demultiplexer"?
+
+It is a device that takes one input line and routes it to one or more digital output lines. Demultiplexers with 2n outputs are 
+equipped with n select lines used to select which output line is to be sent. These demultiplexers are also known as data distributors.
+
+General-purpose logic can be implemented using demultiplexers. If we set the input to true, the demultiplexer will behave like a 
+decoder. 
+
+Digital multiplexers work oppositely as digital demultiplexers.
+
+Demultiplexers can also be cascaded together to generate multiple outputs.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What’s the difference between "blocking" and ‘non-blocking’ functions?
+
+Blocking refers to operations that block further execution until that operation finishes while non-blocking refers to code that 
+doesn’t block execution. Or as Node.js docs puts it, blocking is when the execution of additional JavaScript in the Node.js process 
+must wait until a non-JavaScript operation completes.
+
+Blocking methods execute synchronously while non-blocking methods execute asynchronously.
+
+In Node, non-blocking primarily refers to I/O operations, and JavaScript that exhibits poor performance due to being CPU intensive 
+rather than waiting on a non-JavaScript operation, such as I/O, isn’t typically referred to as blocking.
+
+All of the I/O methods in the Node.js standard library provide async versions, which are non-blocking, and accept callback functions. 
+Some methods also have blocking counterparts, which have names that end with Sync.
+
+Non-blocking I/O operations allow a single process to serve multiple requests at the same time. Instead of the process being blocked 
+and waiting for I/O operations to complete, the I/O operations are delegated to the system, so that the process can execute the next 
+piece of code. Non-blocking I/O operations provide a callback function that is called when the operation is completed.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) What are the main security implementations within NodeJS?
+
+1. Restrict XSS Attacks by Validating User Inputs
+XSS or Cross-Site Scripting allows hackers for injecting vulnerable client-side scripts into website pages viewed by different users. 
+Vulnerable client-side scripts can cause data breaches. Moreover, the hacker can use the JavaScript code. The reason for this is 
+not validating input from users.
+
+Hence, whatever users put in the search field, if not discovered in the database, will be sent back to them in the same old form. 
+Thereby, if a hacker puts JS code rather than the product name in the search bar, he can execute a similar JS code.
+
+Solution
+You can validate the user input. For preventing XSS attacks in Node.js, you can utilize output encoding methods or tools like the 
+Jade engine with in-built encoding frameworks. Also, you can opt for, XSS-filters or Validatorjs for this.
+
+2. Abstain from Data Leaks
+Don’t just rely on what you get from the frontend but also what you will convey to it. You can easily send all information for a 
+specific object to the frontend and just filter what to display there. Nevertheless, it’s quite simple for a hacker to find the 
+hidden data sent from the backend.
+
+Solution
+Only send the information that is needed. In case you just require first and last names, just retrieve those from the database. 
+This may need you to do slightly more work, but this is absolutely worth it.
+
+3. Utilize Security Linters
+You can scan vulnerability automatically. Moreover, it is possible for you to catch basic security exposures even while writing the 
+code.
+
+Solution
+You can utilize linter plugins like eslint-plugin-security. This type of security linter will give you a notification whenever you 
+utilize insecure code practices.
+
+4. Implement Access Control on Each Request
+This thing is usually associated with how properly examined an app has been when it comes to user permissions to various URLs or 
+areas of it. Thereby, in case you want to have limited areas on the app, such as admin dashboard, for instance, and normal users 
+with no appropriate role can access it by any means, then you have access exposure.
+
+Solution
+The best way to get rid of this susceptibility is by manually testing app modules that need particular user permissions. Middlewares 
+and access control rules are best executed on the server-side as they reduce the chances of manipulating access permissions from the 
+client-side by JWT (JSON Web Token) authorization tokens or cookies.
+
+Log access controlling and API rate restricting must be set up. This is how admins get alert when there are important steps that 
+should be taken for reducing the attack and repeated failures.
+
+5. Secure Deserialization
+Insecure deserialization is a vulnerability that includes deserialization and application of buggy objects through remote code 
+implementation or API calls. This kind of attack is known as CSRF (Cross-site Request Forgery) attack. This attack forces end-users 
+to implement unwanted actions on valid web apps.
+
+The objects of CSRF attacks are modifications in app state requests, as the hacker cannot see the forged request reaction. 
+Attackers can apply tricks on users via unusual actions by using social engineering methods, such as sending links through email 
+or chat. CSRF can force state-modifying requests like transforming email ids and then fund transferring. CSRF can compromise the 
+whole web app for admin users.
+
+Solution
+To reduce such hacks or attacks, you need to prevent CSRF. You can do this by using anti-forgery tokens in Node.js. These anti-CSRF 
+tokens are utilized for preventing one-click attacks and checking and validating the authenticity of user requests.
+
+6. Execute HTTP Response Headers
+Express is one of the most extensively used web app frameworks for Node.js. Nevertheless, Express was not created with security 
+consideration. This is why older Express versions may have security risks.
+
+Solution
+You need to use maintained and updated versions for making sure the security of apps. In fact, you can avoid many less common 
+attacks by adding extra security-related HTTP headers to your app. The most common frameworks like CORS can enhance your API’s 
+security but ponder utilizing modules like Helmet, which adds more headers for securing your app.
+
+Helmet can help you shield Express and Node.js apps. It’s a collection of middleware functions that execute 11 different 
+header-based security systems for you with a line of code. It incorporates the prevention of cross-site scripting attacks, 
+man-in-the-middle attacks, and administration of secure server connections.
+
+7. Establish Logging and Monitoring
+Logging and monitoring are also associated with Node.js security. After all, your objective is to make mechanisms secure from 
+the start, but it actually needs a continuous procedure. And for this, you require logging and monitoring.
+
+Solution
+Some hackers want to make your app unavailable, which can be found out with no logging. But some hackers want to stay unidentified 
+for a longer time. For this case, log and metrics monitoring will help you detect the wrong matter. With just basic logging, you 
+cannot get sufficient data for understanding if you get strange-looking requests from your own app, a hacker, or a third-party API.
+
+There are various tools and many of them talking and combining, offer the precise layers for improving the protection of your system, 
+depending on data. Data is important for assessing and identifying probable exposures and invasions of your app. You can make many 
+routines that implement depending on a few pre-decided system behaviors.
+
+The logging and monitoring explain everything that happens inside an app. Hence, the monitoring functions as the voice of it that 
+will come at you if something vulnerable is recognized.
+
+8. Execute Strong & Complete Authentication
+An incomplete, weak, or broken authentication system is known as another common vulnerability. It possibly occurs because many 
+developers think that they are secure as they have it. But, in reality, unstable or weak authentication is simple to bypass.
+
+Solution
+One prime fix is to utilize current authentication solutions like OAuth, Firebase Auth or Okta. In case you want to go for Node.js 
+authentication solutions, keep a few things in mind.
+
+While making passwords, never utilize the Node.js in-built crypto library; rather utilize Scrypt or Bcrypt. Ensure to restrict 
+failed login attempts and never tell users in case the password or username that is not correct.
+
+Moreover, you require appropriate session handling policies. Ensure to execute 2FA authentication. If done appropriately, it can 
+boost your app security a lot. You can do it using modules like Speakeasy or node-2fa.
+
+9. Regularly Scan Apps Automatically for Vulnerability
+The Node.js ecosystem comprises several libraries and modules to install. Many of them can be utilized usually in your projects. 
+This produces a security risk. You cannot be completely sure that it’s secure while using code written by somebody else.
+
+Solution
+To solve this, you must run regular automated vulnerability scanning. This helps you find dependencies with common vulnerabilities.
+
+Moreover, you can opt for NPM analysis for basic monitoring, but ponder using tools like Retire.js, WhiteSource Renovate, OWASP 
+Dependency-Check, OSS INDEX, Acutinex, and NODEJSSCAN.
+
+10. Make Fluid Build Pipelines for Security Patches
+When web servers or apps are left unprotected or protected with weak security standards, security misconfiguration vulnerabilities 
+happen. Due to this vulnerability, several parts of the app stack (app containers, database, server, etc.) become prone to 
+vulnerable exploits.
+
+Weak build pipelines are a big entry point of security misconfiguration type attacks like staging or development area credentials 
+at times make it to creation. This leaves the app exposed as staging or development area configurations to get loose security 
+standards.
+
+Solution
+You are recommended to keep every environment (development, staging and production) equal with various credentials and access levels.
+
+Default package settings and user account passwords also introduce vulnerabilities in Node.js apps as hackers can open up brute-force 
+dictionary attacks against login forms with weak credentials.
+
+On the other hand, default package settings leave vulnerability pieces for malevolent hackers.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) Explain the “path” module in NodeJS.
+
+NodeJS path module is a core built-in module. It provides functionalities for accessing and interacting with files. It provides users a 
+way of working with file paths and directories.
+
+Since it is a core module, you do not need to install it. However, to include the path module in your application you must ‘require’ 
+it.
+
+1. basename(path, [ext])
+Returns the last part of a file path. A second parameter will hold the file extension.
+
+path.basename('/random/random') //random
+path.basename('/random/random.txt') //random.txt
+path.basename('/random/random.txt', '.txt') //random
+
+
+2. delimiter
+Returns the delimiter for the path. Windows uses the ‘;’ (semicolon) delimiter and Linux and MacOS use the ‘:’ (colon) delimiter.
+
+console.log(path.delimiter);
+
+
+3. dirname(path)
+Returns the directories of a path.
+
+path.dirname('/random/something') // /random
+path.dirname('/random/something/file.txt') // /random/something
+
+
+4. extname(path)
+Returns the file extension of a path.
+
+path.extname('/random/test') // ''
+path.extname('/random/test/file.txt') // '.txt'
+
+
+5. format(pathObject)
+Returns path string from a path object. It is the opposite of path.parse(). It accepts keys or properties such as:
+
+As a rule of thumb, the root key is ignored in case dir is present. Similarly, ext and name keys are ignored if the base is provided.
+
+// POSIX
+path.format({ dir: '/Users/Cassandra', base: 'file.txt' }) //  '/Users/Cassandra/file.txt'
+
+path.format({ root: '/Users/Cassandra', name: 'file', ext: 'txt' }) //  '/Users/Cassandra/file.txt'
+
+// WINDOWS
+path.format({ dir: 'C:\\Users\\Cassandra', base: 'file.txt' }) //  'C:\\Users\\Cassandra\\file.txt'
+
+
+6. isAbsolute(path)
+Checks if a file is an absolute path or not. Returns true if it is, otherwise, false.
+
+
+path.isAbsolute('/random/test) // true
+path.isAbsolute('./random/test) // false
+
+
+7. join([…paths])
+Joins multiple paths into one.
+
+const name = 'Cassandra'
+path.join('/', 'Users', name, 'test.txt') //'/Users/Cassandra/test.txt'
+
+
+8. normalize(path)
+Tries to estimate the actual path when relative specifiers like ‘.’ or ‘..’, double slashes are present.
+
+path.normalize('/Users/Cassandra/..//list.txt') //'/Users/list.txt'
+
+
+9. parse(path)
+Formats the path string into a path object with the properties that it comprises:
+
+root: the root of the path
+dir: the directory path starting from the root
+base: the file name and extension
+name: the file name
+ext: the file extension of the path
+We are required to pass the path string: path.parse('/Users/list.txt')
+
+The result:
+
+{
+  root: '/',
+  dir: '/Users',
+  base: 'list.txt',
+  ext: '.txt',
+  name: 'list'
+}
+
+
+10. posix
+Returns an object that contains POSIX-specific properties and methods. This property enables users to access POSIX-specific 
+implementations of the path methods.
+
+console.log(path.posix);
+
+
+11. relative(from, to)
+Returns a relative path from the first path to the second, based on the current working directory.
+
+path.relative('/Users/Cassandra', '/Users/Cassandra/test.txt') //'test.txt'
+path.relative('/Users/Cassandra ', '/Users/Cassandra/something/test.txt') //'something/test.txt'
+
+
+12. resolve([…paths])
+Returns an absolute path estimate of a relative path(s).
+
+path.resolve('list.txt') //'/Users/Cassandra/list.txt'
+
+
+13. sep
+Returns the platform-specific segment separator of the path.
+
+‘\’ on Windows
+‘/’ on POSIX
+
+
+14. win32
+Returns an object that contains Windows-specific properties and methods. This property enables users to access 
+Windows-specific implementations of the path methods.
+
+
+console.log(path.win32);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,57 @@
+QUESTION 1) How do you organize your code? What are some suggestions you find on the web?
+
+ First off, I prefer to keep all my JS code outside of the html file by script sourcing as much as possible.  I prefer to keep my code in logical sections
+ as it applies to content in the html file.  Keeping sections in separate js files also helps keep things clear.  Commenting definitely improves the 
+ readability of the code, especially when you come back days later and wonder why you did something the way you did.  
+
+ Suggestions I found useful online is the Module Pattern.  The Module Pattern is one of the most common design patterns used in JavaScript and for good 
+ reason. The module pattern is easy to use and creates encapsulation of our code. Modules are commonly used as singleton style objects where only one 
+ instance exists. The Module Pattern is great for services and testing/TDD. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Can you describe your workflow when you create a web page or web app?
+
+My workflow usually consists of planning things out, then implementing the planned ideas and finally testing to make sure everything is working correctly.
+The planning stage is used to draw up a wire frame of the site, deciding on what content needs to created and how to implement it.  Implementation is taking
+the items from the planning stage and making them come alive.  Creating each section with the idea of a mobile design first, then desktop to follow. Finally,
+I go back and test everything to ensure links are working, the responsiveness, code is doing what it is supposed to do, layout issues and grammatical errors.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) You can’t work out how to solve a coding problem, where do you find the answer? Why? How do you know?
+
+Whenever I can't solve a problem, I will usually rely on documentation such as MDN Docs or WC3 Schools for help with references or guides.  I often forget
+what a method return value would be, so this is a great source for that information.  In addition, I will also use google to see if there are similar 
+solutions to the problem I am currently facing.  I enjoy learning multiple methods to solving a single problem.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What problems have you solved that didn’t involve you coding?
+
+I think the biggest problem I solved that didn't involve coding was adjusting my life schedule to allow time for coding and practice.  I learned to better 
+handle work and taking this course.  I am learning that it is very important to give myself plenty of time to study the material and practice what I learned
+each class session.  I will often practice coding problems and try to find additional projects to help practice those skills, all while still balancing a 
+my normal life outside of class.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) Talk about your preferred development environment. (What IDE or text editor you enjoy, and why?)
+
+I really enjoy using VSCode for most of my code, although I still use PyCharm for my python projects.  I have used VSCode for several years now and it 
+is definitely a step up from the days of Notepad++ and Adobe Dreamweaver.  I really like the customization VSCode provides as well the extensions that 
+make this editor a powerful IDE.  Allowing the viewing of multiple workspaces and views across multiple screens is definitely when working on multiple files 
+in several projects at once.  In addition, extensions such as Prettier and GitLens are definitely used in my day to day as well.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) How are you keeping up with the latest developments in web development?
+
+I keep up with the latest developments in web development by reading web dev blogs in Medium, subscribing to several Youtube channels for HTML, CSS and 
+JS.  In addition I listen to several podcasts talk about new development with regards to CSS, REACT and JS.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+

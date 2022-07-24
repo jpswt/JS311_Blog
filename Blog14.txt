@@ -1,0 +1,217 @@
+QUESTION 1) Tell me about a project you’re particularly proud of. What did you do that worked out well?
+
+I am proud of the checkpoint express app with routes.  It provided a knowledgeable basis for the me to learn off and be able to add additional
+content to it. It eventually lead to creation of my capstone backend.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) How do you do testing, and what do you think about it? How would you improve QA?
+
+An efficient software tester can not only find critical bugs, but can contribute more of their efforts to help their teammates.
+
+Below are six tips where you can test the software efficiently:
+
+1. Organize (Plan) Everything
+
+Preparing effective software testing environments and tasks require communication with many people. If one don’t have a method to 
+store this information, then you will miss some of the most important details. Details that could end up saving your hours of your 
+time. People are communicating through many mediums. It’s easy for a message to miss through the cracks. When you prepare a proper 
+organized structure to maintain all of your important details, you are able to gather the correct details and form your testing 
+strategy for that particular project.
+
+2. Write Detailed Bug Reports
+
+Writing clean and detailed bug reports helps a lot to everyone in your team.
+
+Following are 3 points to write a detailed bug report:
+
+i. Report a bug with each and every minute detail faced while testing.
+
+ii. Report the bug with clarity.
+
+iii. Write the bug in a way that everyone in your team can easily understand.
+
+3. Clear Test Cases
+
+Test cases plays a vital role in software testing process. Testers on your team will be rely on the information displayed to carry 
+out their tasks. Don’t create long test cases. When you add more steps to a test case, you are increasing the probability of someone 
+on your team which could fail to execute a task. Experience shows that the optimal length of a test case is maximum between 3-8 steps.
+
+4. Take Initiative and Communicate
+
+A tester is only as efficient as his/her team. Your motto is to make sure everyone is involved in the project has an appropriate 
+understanding of the application. When everyone understands what the application entails, testers can cover all the test cases 
+effectively. Communication with the test lead or manager is important to allow testers to involve in the decision making meetings. 
+Granting testers an access to early knowledge will allow them to prepare early test environments. This will avoid any unpredictable 
+issues.
+
+5. Ask Yourself A Question
+
+Testing is a process. When you have an application to be tested, you must decide what is to be tested, what should be the outcome, 
+and apply your testing techniques. Ask yourself, what questions your tests are answering? The time when you understand what the 
+question is, you just need to catch which answer makes the sense. When you create a process, you can conclude reaching your expected 
+results faster.
+
+6. Always Be Positive
+
+A tester’s understanding of the application can make a huge difference in finding the critical bugs of the application. If you’re 
+testing an application without any expectations to find any bugs, then you might end up with zero bugs. None of the application can 
+run smoothly in the starting phase and tester is should be aware of that thing. There are a numerous amount of situations which can 
+break an application. By telling yourself from the initial phase that you will uproot the critical bug, you will end up with finding 
+many other bugs in the application.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What tools do you use to find a performance bug?
+
+1. Developer tools in modern web browsers
+Every modern browser has tools available within it to debug code. Let’s take a look at some of the basic methods you might use to 
+debug JavaScript using these browser tools, and then highlight each major browser and its dev tools in turn.
+
+Outputting JavaScript debugging messages to the browser
+‍One of the easiest ways to debug JavaScript has always been to output data to the browser. Here are the three main ways to do so:
+
+Popping up messages with `alert()`
+A tried and true method to debug JavaScript items, `alert()` will create a popup alert when your code meets a particular condition. 
+The problem with alerts is that you end up with a series of popups.  If you need more than one, they become unwieldy rather fast. 
+This makes them more useful for a quick check of a value or to find out if a certain bit of code is executing, but not much more.
+
+Logging lines to console with `console.log()`
+Logging to the console is the norm for JavaScript debugging. Adding a `console.log(‘foo’);` line to your code will create a `foo` 
+log entry in the JavaScript console of your respective dev tools set. This can be useful for a variety of reasons. For example, you 
+can verify the value of a variable after you pass it to a method, or output the contents of an API response or results of a database
+query.
+
+Pausing code execution with the `debugger`
+The `debugger;` statement will pause code execution wherever you insert it in the code. The `debugger` statement will function as a 
+breakpoint, pausing code execution. This allows you to investigate with the dev tools while the code is in a paused state.
+
+2. The hackable debug tool — debugger
+The Firefox dev tools team maintains a standalone tool dubbed simply “debugger” that you can use to debug in either Firefox or Chrome, 
+and you can switch between them as necessary to ensure that your application is functioning correctly in both. If you are willing to 
+set this node app up with just a few simple steps, you can use it in lieu of using the in-browser tools in either browser, and get 
+the same exact experience and identical comparison in both. Pretty neat!
+
+3. Node.js Inspector for debugging requests to Node apps
+Debugging the Node.js on your application’s backend can be challenging. The following tools take advantage of the capabilities of 
+the Node.js Inspector to assist you:
+
+The Node Debug library for Node Inspector is a library can be included in your projects to assist you in implementing Node Inspector.
+
+‍Node.js V8 Inspector Manager is a Chrome extension which adds Node Inspector tools to the Dev Tools in Chrome
+
+The Visual Studio Code editor allows for easy built-in Node Inspector usage
+
+- Click the Debug tab at the top
+- Choose Open Configurations
+- If none are set already, choose Node.js to start with
+- If you already have settings in the launch.json, you can hit Add Configuration to add the Node.js configuration
+
+For more information on the various parameters and configurations that VS Code can use when debugging Node.js, check out the Node.js 
+debugging documentation.
+
+4. Postman for debugging requests and responses
+A non-trivial amount of JavaScript development revolves around sending requests to APIs and receiving responses. These requests and 
+responses are often in JSON format. Your application may need to conduct API requests for innumerable reasons, such as interacting 
+with authentication servers, fetching calendars or news feeds, checking the weather, and countless others.
+
+‍Postman is one of the best JavaScript debugging tools for troubleshooting the requests and responses in your application. Postman 
+offers software for Windows, macOS, and Linux. With Postman, you can tweak requests, analyze responses, debug problems. Within the 
+software, you can tailor clean transactions that you can then duplicate in your application.
+
+Additionally, Postman has a feature called Collections. Collections allow you to save sets of requests and responses for your 
+application or for an API. You save valuable time when collaborating with others or repeating the same testing tasks. When using 
+Postman collections, you update the collection if necessary and then use it. This is much faster than repeatedly writing out every 
+test.
+
+5. ESLint
+ESLint is a linter for JavaScript. Linters will analyze code as it is written and identify a variety of basic syntax problems. The 
+use of ESLint will allow you to catch errors, particularly easy to resolve but annoying ones such as missing brackets or typos, 
+before executing the code. ESLint is available as a Node package. It has also been set up as a plugin for many code editors such as 
+Sublime Text 3 and VS Code, which will then mark the offending errors right in your editor window.
+
+6. JS Bin
+JS Bin is one of the best JavaScript debugging tools for collaborative debugging of your JavaScript. It allows you to test and 
+debug scripts right along with other people. You can run the JavaScript, see a debug console and the output of the scripts, add 
+libraries and dependencies, and so much more. Pro accounts can also take their code private, as well as other benefits.One of the 
+primary reasons you might consider using a tool like JS Bin is simplicity. In JS Bin, you can test the functionality of a small 
+subset of your JavaScript in an isolated environment, without having to set an entire environment for it. When testing in JS Bin, 
+you can be sure that your results aren’t tainted by conflicting scripts or styles from other parts of your application.Another key 
+feature of JS Bin is the immediate result you get from altering your JavaScript, HTML, or CSS. You can see your changes in real time. 
+You can copy some code to JS Bin and have a working (or not working!) demo in no time. Then you are ready to debug it or share it.
+
+7. JSON Formatter and Validator
+It can be incredibly difficult to spot syntax errors or keys which have incorrect values when looking at unformatted JSON. If you 
+have a condensed or minified JSON object, missing line returns, indentations, and spaces, it may be a challenge to read. You need to 
+be able to quickly scan that object and check for errors in formatting or content.To do that, you will expand the object and format 
+it, wasting valuable time. The JSON Formatter & Validator relieves that pain point, so we’ve added it to this list of what I feel 
+are the best JavaScript debugging tools. Postman automatically formats the object and allows you to easily validate both its JSON 
+syntax as well as the actual content. You simply paste your JSON in, and it outputs the correctly formatted version. The tool will 
+even automatically validate syntax to RFC standards, depending on which you select, if any.
+
+8. Webpack
+Webpack is a bundling tool used by developers for all manner of sites and applications. If you use Webpack to do your bundling, you 
+have the advantage of the stats data available from the tool.
+
+This data can range from module contents, build logs and errors, relationships that exist between modules, and much more. If you 
+already use Webpack, this is an incredibly useful feature that sometimes gets overlooked. You can even use pre-built tools, such 
+as the Webpack Analyse Web App, to visualize the stats that you generate from Webpack.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What is the preferred method of resolving unhandled exceptions in Node.js?
+
+As you know Node js is a part of Javascript. To handle exception we can have try and catch block.
+
+For example:
+
+try { 
+     //your code... 
+} catch(err){ 
+  console.log(err) 
+} 
+But good practice says, you should use Process.
+
+Process is a global object that provides information about the current Node.js process.
+
+Process is a listener function that is always listening to events.
+
+Few events are :
+
+Exit
+disconnect
+unhandledException
+rejectionHandled
+If any uncaught exception occurs in your code flow, that exception will be caught in code shown below:
+
+process.on('uncaughtException', function(err) { 
+    // handle the error safely 
+    console.log(err) 
+}) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) How does Node.js support multi-processor platforms, and does it fully utilize all processor resources?
+
+Cluster is the official way: https://nodejs.org/api/cluster.html#cluster_cluster. You create as many virtual instances of your 
+node server with as many CPU-cores you have. Work around for the single-threaded event loop (unique to Node) are child_process 
+(official Node practice), and task queues like Rabbit MQ. But as far as your question about taking advantage of a multi-core 
+machine, creating a Node Cluster is the official way.
+
+Use either the child_process or the cluster modules to take advantage of multi-processor environments.
+Use cluster when you want to parallelize the SAME flow of execution and server listening.
+Use child_process when you want DIFFERENT flows of execution working together.
+Take advantage of built in Inter-Process Communication to pass objects between the processes.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What is typically the first argument passed to a Node.js callback handler?
+
+The callback handler functions follow the error-first convention that is:
+
+The first argument of the callback handler should be the error and the second argument can be the result of the operation.
+While calling the callback function if there is an error we can call it like callback(err) otherwise we can call it like callback(null, result).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+

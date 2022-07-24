@@ -1,0 +1,302 @@
+QUESTION 1) How does Node.js handle child threads?
+
+Node.js is a single-threaded language and uses the multiple threads in the background for certain tasks as I/O calls but it does not expose child threads to the developer.
+But node.js gives us ways to work around if we really need to do some work parallelly to our main single thread process.
+Child Process in Node: The child_process module gives the node the ability to run the child process by accessing operating system commands.
+
+// Do any work in parallel to main
+// event loop or main process
+console.log('Child Process Starts')
+setTimeout(() => {
+	console.log('Data processed')
+}, 5000)
+
+const { fork } = require('child_process');
+
+// Fork another process
+const child_process = fork('./parallelProcess.js');
+
+// Data we may need to send to the child process
+const data = {}
+
+console.log('Before process')
+
+// Send the data to forked process
+child_process.send({ data }, function(){
+	console.log('Sending data')
+});
+
+// Listen to forked process
+child_process.on('close', (result) => {
+	console.log('Child process terminated and returned');
+});
+
+console.log('After process')
+
+
+Before process
+After process
+Child Process Starts
+Data processed
+Child process terminated and returned
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) How can you listen on port 80 with Node?
+
+To create a server in our backend from Node.js, we need to import ‘http’ module and then call its createServer method to create a server. The server is 
+set to listen on the specified port and hostname. When the server is ready, the callback function is called, in this case informing us that the server 
+is running.
+
+Importing ‘http’ module
+const http = require('http');
+
+Creating Server
+const server = http.createServer((req,res)=>{
+    // Handle request and response
+});
+
+Specify Port Number and hostname and set the server to listen to it.
+server.listen(port,hostname,callback); 
+
+The default port for HTTP is 80 – Generally, most web browsers listen to the default port. 
+
+The syntax for a server URL is:
+
+http://{hostname}:{port}/
+
+So if we do not mention the port in the server URL, then by default it takes it as  80. To put it simply, http://localhost/  is exactly 
+same as  http://localhost:80/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What tools can be used to assure consistent style?
+
+-Prettier
+Prettier is the most popular code formatter for JavaScript applications. With Prettier, we no longer have to worry about code style, just press 
+save and let Prettier handle it.
+
+-ESLint
+ESLint will analyze our code to prevent problems before committing to the codebase.
+
+ESLint statically analyzes your code to quickly find problems.
+
+Many problems ESLint finds can be automatically fixed.
+
+-Husky
+Husky is the guard for your repository to stop bad code from enter your codebase.
+
+Use Prettier to format your code on save.
+ESLint will analyze your codebase for issues.
+Husky will run these tasks before each commit.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) List out the differences between AngularJS and NodeJS.
+
+ Both Node JS and Angular are open-source JavaScript frameworks that is used for building web applications. Node JS is basically a back-end framework 
+ used for writing business logic, while Angular is a front-end framework used for creating intuitive user interface of a web application.
+
+Angular JS	                                                              Node.JS
+-It is a structural framework for developing dynamic web apps.	        -It is a cross-platform run-time environment for applications written in JavaScript language.
+-It is entirely written in JavaScript.	                                -It is written in C, C++ and JavaScript.
+-It is used to build single-page client-side applications.	            -It is used to build fast, scalable server-side and client-side networking applications.
+-Ideal for developing highly active and interactive web apps.	          -Ideal for developing small size projects.
+-Dev only needs to add AngularJS file to use  in his application.	      -The developer need to install the NodeJS on his computer system.
+-Models and views in AngularJS are much simpler than what found in      -It uses the event driven nature of the JavaScript to support non blocking operations and 
+other JavaScript client-side frameworks.	                              that makes the platform efficient.
+-It is based on the model-view-controller design pattern and            -It is single threaded meaning the web requests and processed and run on the same thread.
+embraces that pattern completely.	
+AngularJS is a Web Framework.	                                          -NodeJS provides different Web Frameworks like Socket.io, Hapi.js, Meteor.js, Express.js, 
+                                                                        and Sails.js
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) What are the advantages of NodeJS?
+
+1. Node.js offers an Easy Scalability
+One of the key advantages of Node.js is that developers find it easy to scale the applications in horizontal as well as the vertical directions. The applications 
+can be scaled in horizontal manner by the addition of additional nodes to the existing system.
+
+Moreover, Node.js also offers you the option of adding extra resources to the single nodes during the vertical scaling of the application. So, it is highly scalable 
+and provides better option than other JavaScript servers.
+
+2. Easy to Learn
+Since JavaScript is one of the most popular programming languages, most of the front-end developers have a good grasp over it.
+
+It becomes much easier for them to start using the Node.js at the backend. It is easier to learn Node.js and consumes less time to work with it.
+
+3. Node.js is used as a Single Programming Language
+Node.js offers the developers the luxury of writing the server-side applications in the JavaScript. This allows the Node.js developers to write both the front-end as 
+well as the back-end web application in JavaScript using a runtime environment.
+
+And they don’t need to use any other server-side programming language. It also makes the deployment of the web applications simpler because almost all the web 
+browsers support JavaScript.
+
+4. The Benefit of Fullstack JS
+Node.js has been regarded as a full-stack JavaScript for serving both the client and the server-side applications.
+
+Therefore, the advantage is that you don’t have to hire separate developers for backend as well as the front-end development. It saves both your valuable money and time.
+
+5. Known for Offering High Performance
+It has been mentioned earlier that Node.js interprets the JavaScript code via Google’s V8 JavaScript engine. This engine complies the JavaScript code directly into the 
+machine code. This makes it easier and faster to implement the code in a effective manner.
+
+The speed of the code execution also enhanced by runtime environment as it supports the non-blocking I/O operations.
+
+6. The Support of Large and Active Community
+Node.js is blessed to have a large and active community of developers who keep on continuously contributing towards its further development and improvement.
+
+In fact, the groups of developers are well supported by the JavaScript programmers providing ready-made and easy solutions and codes in GitHub. It is expected that the 
+developers will initiate many further developers in the future.
+
+7. The Advantage of Caching
+The open-source runtime environment of the Node.js also provides the facility of caching single modules. Whenever there is any request for the first module, it gets cached 
+in the application memory.
+
+The developers don’t have to re-execute the codes as caching allows applications to load the web pages faster and responds more swiftly to the user.
+
+8. Offers the Freedom to Develop Apps
+Another advantage that Node.js offers to the developers is the freedom to develop the apps and software.
+
+This is one essential feature, which remains absent in Ruby on Rails imposing certain guidelines. You can begin everything from the scratch while developing applications.
+
+9. Getting Support for Commonly Used Tools
+With Node.js, the developers can get an extended support for the various commonly used tools. Let’s take an example. Suppose, you want to test the source code of Node.js 
+application; you can do so by using the Jasmin and other such unit-testing tools.
+
+Similarly, if you want to identify and install the project dependencies, you can make use of npm, a powerful package manager. You can use grunt for task running of the project.
+
+10. Handles the Requests Simultaneously
+Since the Node.js is providing the option of non-blocking I/O systems, it relatively helps you to process several requests concurrently.
+
+The system can handle the concurrent request handling efficiently better than others including Ruby or Python. The incoming requests get lined up and are executed quickly
+ and systematically.
+
+11. Node.js is Highly Extensible
+The Node.js is known to be highly extensible, which means that you can customize and further extend Node.js as per their requirements.
+
+You can also make use of JSON to provide the scope for exchange of data between the web server and the client. It also is facilitated with built-in APIs for 
+developing HTTP, TCP, and DNS etc. servers.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What is meant by JSON?
+
+JSON stands for JavaScript Object Notation
+
+JSON is a lightweight format for storing and transporting data
+
+JSON is often used when data is sent from a server to a web page
+
+JSON is "self-describing" and easy to understand
+
+Example:
+
+{
+"employees":[
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+]
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) Discuss your understanding of Agile so far.
+
+I know very little about the topic of Agile up to this point.  
+
+Agile is an approach to project management that centers around incremental and iterative steps to completing projects. The incremental parts of a project are carried out in 
+short-term development cycles. The approach prioritizes quick delivery, adapting to change, and collaboration rather than top-down management and following a set plan.
+
+In Agile processes, there is constant feedback, allowing for team members to adjust to challenges as they arise, and stakeholders an opportunity to communicate consistently. 
+Though originally created for software development, the Agile approach is now widely used in executing many different types of projects and in running organizations.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) How is scrum different from waterfall?
+
+Development – with Scrum we have iterative development and with Waterfall it’s sequential
+
+Progress – with Scrum we see the progress by the delivery of valued features every two weeks and with Waterfall, there are reports on each stage and activity
+
+Quality – with Scrum quality is built upfront with standards and with Waterfall, product quality is defined with extensive testing at the end
+
+Feedback – Scrum is organized around constant feedback to the team and fast; Waterfall is more tolerant of late learning
+
+Teamwork – Scrum uses cross-functional teams with common knowledge of the product and shared experiences and Waterfall works with knowledge stored in documents and a lot more 
+autonomy and independence
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 9) What are the Three Amigos in Scrum?
+
+The three Amigo Principle says that the three Amigos; Business Analyst, Developers and Quality Analysts should get together in a meeting where:
+
+The Business Analyst details out each of the Business Requirements with the team.
+The members of the Quality Assurance Team discuss the Test Cases already created for these business requirements.
+The members of the Development Team discuss the architecture and the low-level design with the team.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 10) What is the “timeboxing” of a scrum process called? Describe, please.
+
+Definition of Timeboxing:
+Timeboxing is allotting a fixed, maximum unit of time for an activity. That unit of time is called a time box. The goal of timeboxing is to define and limit the amount of 
+time dedicated to an activity.
+
+In Scrum, timeboxing is a critical component of all five events. Some Scrum teams also use timeboxing during a Sprint to concretely define open-ended tasks. An example of 
+an open-ended task might be conducting research that is necessary for the team to reach a decision or to estimate the size and complexity of an upcoming story.
+
+Timeboxing is a common feature of many project management methodologies because timeboxing keeps teams focused on accomplishing the task at hand by providing a clear 
+definition of done.
+
+Timeboxing also encourages teams to start getting work done immediately. Temporal Motivation Theory shows that time constraints are a critical component of getting work done efficiently.  
+In Scrum, the sooner you can inspect a deliverable, the sooner you can adapt it.
+
+Timeboxing is a critical component of good Scrum
+
+All five events in Scrum are timeboxed:
+
+1. Sprint: Timeboxing is used to define the length of the Sprint. The Sprint is a timebox of one month or less in which the scrum team will deliver the Sprint goals. At Scrum Inc., our Sprint 
+timebox is one week and this is what we recommend to teams that we coach.
+
+2. Sprint Planning: When a team launches, they establish the timebox for the Sprint Planning meeting. As noted in the Scrum Guide, a Sprint planning meeting should be timeboxed at 8 hours or 
+less for a one-month Sprint. The shorter the Sprint, the shorter the timebox should be for Sprint Planning. At Scrum Inc., we recommend one-week Sprints and a two-hour timebox for Sprint Planning.
+
+3. Daily Scrum: The Daily Scrum is a timebox of 15 minutes for each 24-hour period that helps the Scrum Team synchronize activities and make visible any impediments to achieving the Sprint Goal.
+
+4. Sprint Review: The Sprint Review is a timebox of four hours or less for one-month Sprints. During the Sprint Review, Sprint Backlog items delivered during the sprint are demonstrated and inspected. 
+It is also a time to adapt the backlog based on feedback.
+
+5. Sprint Retrospectives: The Sprint Retrospective is a timebox of three hours or less for a one month sprint. This is an event in which the team inspects itself and identifies a process improvement 
+that the team will implement in the following sprint.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 11) What are the roles of a scrum master and product owner?
+
+The following is a summary of the responsibilities of the Scrum Masters. 
+
+1. The Scrum Master manages the Scrum process while coordinating with the Scrum team. 
+2. They facilitate the development, engineering, and Scrum team by helping them improve their processes for increased efficiency. 
+3. Scrum Masters arrange daily stand-up meetings and facilitate other meetings, demos, and decision-making processes. 
+4. They also help the product owner create and maintain the product backlog. They help make the sprint backlog ready for the next sprint. 
+5. Scrum Masters also conduct sprint retrospective meetings and help facilitate sprint planning meetings. 
+6. Roles of Scrum Masters don’t change much, but one thing always remains constant – they help remove impediments in the product process that hinder project success. 
+
+The following is a summary of the responsibilities of product owners. 
+
+1. The product owner attends sprint demos, sprint planning meetings, and daily Scrums. 
+2. They develop the product vision, form deadlines, and define feature priorities. 
+3. Product owners have to fulfill their Scrum roles by continually communicating with the Scrum master. 
+4. Product owners also help determine the right release date and contents for products. 
+5. They manage the product backlog and develop it from scratch. They’re responsible for adding product backlog items, user stories, and any other necessary changes. 
+6. Out of the user stories, product owners define the epics and communicate them to the development team. 
+7. They are responsible for prioritizing the user stories with the help of team members. 
+8. Product owners also have to analyze and prioritize product features using sprint reviews and other similar methods. 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
